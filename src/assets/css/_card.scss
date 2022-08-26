@@ -1,0 +1,8 @@
+.pc__card {
+    display: inline-block;
+    border-radius: $border-radius;
+    border: $border-width solid $border-color;
+    box-shadow: $box-shadows-base;
+    padding: $grid-padding-x $grid-padding-y;
+}
+

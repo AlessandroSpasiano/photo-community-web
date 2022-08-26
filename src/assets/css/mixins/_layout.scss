@@ -1,0 +1,25 @@
+
+@mixin base-flex($direction) {
+    .pc__flex--#{$direction} {
+        display: flex;
+        flex-flow: row wrap;
+        flex-direction: #{$direction};
+        @content;
+    }
+}
+
+@mixin flex-space-beetwen($direction) {
+    .pc__flex--row-spaceb {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: #{$direction};
+        justify-content: space-around;
+        @content;
+    }
+}
+
+@mixin grid-columns($number) {
+    display: grid;
+    grid-template-columns: repeat($number, 1fr);
+    @content;
+}

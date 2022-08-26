@@ -1,30 +1,58 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <div class="pc__grid-3 padding-2 pc__bg--primary-variant">
+    <div class="pc__grid--logo">
+      <router-link to="/">
+        <img
+          class="pc__logo"
+          src="@/assets/image-resources/unnamed.jpg"
+          alt="Logo"
+        />
+      </router-link>
+    </div>
+    <div class="pc__grid--title">
+      <div class="pc__color--secondary pc__text--h3">{{ title }}</div>
+    </div>
+    <div class="pc__grid--actions">
+      <button class="pc__btn-outline-primary btn borderless" @click="login">
+        <span class="material-icons-round" v-if="isLogged">logout</span>
+        <span class="material-icons-round" v-else>login</span>
+      </button>
+    </div>
+  </div>
   <router-view />
 </template>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import "./assets/css/app.css";
 </style>
+<script>
+import { useUserStore } from "./state/user";
+import { useErrorStore } from "./state/error";
+import { config } from "@/utils/config";
+
+export default {
+  data() {
+    const userStore = useUserStore();
+    const error = useErrorStore();
+    return {
+      error,
+      config,
+      userStore,
+    };
+  },
+  methods: {
+    login() {
+      if (!this.userStore.isLogged) {
+        this.$router.push("/login");
+      }
+    },
+  },
+  computed: {
+    isLogged() {
+      return this.userStore.isLogged;
+    },
+    title() {
+      return this.config.appTitle;
+    },
+  },
+};
+</script>

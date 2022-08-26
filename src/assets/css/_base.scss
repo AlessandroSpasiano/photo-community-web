@@ -1,0 +1,25 @@
+body {
+    font-family: $font-family;
+}
+
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 20px;
+}
+
+@include margin;
+@include padding;
+
+.full-size {
+    width: 100%;
+}
+
+.fit-content {
+    width: fit-content;
+}
+
+.border-radius {
+    border-radius: $border-radius;
+    border-color: $onSurface;
+}

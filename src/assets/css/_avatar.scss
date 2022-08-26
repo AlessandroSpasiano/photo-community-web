@@ -1,0 +1,52 @@
+%avatar-shared {
+    display: grid;
+    place-content: stretch;
+    place-items: center;
+    width: $avatar-size-base;
+    height: $avatar-size-base;
+    border: $avatar-border-width solid $border-color;
+    border-radius: $avatar-border-radius;
+}
+.pc__avatar {
+    @extend %avatar-shared;
+    
+    &--small {
+        @extend %avatar-shared;
+        width: $avatar-size-sm;
+        height: $avatar-size-sm;
+
+        .material-icons-round {
+            margin: auto;
+            font-size: $avatar-size-sm;
+        }
+    }
+
+    &--medium {
+        @extend %avatar-shared;
+        width: $avatar-size-m;
+        height: $avatar-size-m;
+
+        .material-icons-round {
+            margin: auto;
+            font-size: $avatar-size-m;
+        }
+    }
+
+    &--large {
+        @extend %avatar-shared;
+        width: $avatar-size-l;
+        height: $avatar-size-l;
+
+        .material-icons-round {
+            margin: auto;
+            font-size: $avatar-size-l;
+        }
+    }
+    
+    .material-icons-round {
+        margin: auto;
+        font-size: $avatar-size-base;
+    }
+
+    
+}

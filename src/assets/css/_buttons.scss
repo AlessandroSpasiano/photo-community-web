@@ -1,0 +1,29 @@
+.btn {
+    display: inline-block;
+    font-weight: $btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: $btn-border-width solid transparent;
+    text-transform: uppercase;
+    .material-icons-round {
+        vertical-align: middle !important;
+    }
+
+    @include button-size($btn-padding-y, $btn-padding-y, $font-size-base, $btn-line-height, $btn-border-radius);
+    @include transition($btn-transition);
+
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .pc__btn-#{$color} {
+        @include button-variant($value, $value);
+    }
+
+    .pc__btn-outline-#{$color} {
+        @include button-outline-variant($value);
+    }
+}

@@ -1,0 +1,109 @@
+// Color system
+
+$primary: #2B4570;
+$primaryVariant: #A8D0DB;
+$onPrimary: #E49273;
+$surface: #ffffff;
+$onSurface: #000000;
+$error: #e72d24;
+$warning: #f4913c;
+$success: #39b92f;
+$normal: #c3cfc8;
+
+$theme-colors: () !default;
+$theme-colors: map-merge($map1: (
+    "primary": $primary,
+    "primary-variant": $primaryVariant,
+    "neutral": $normal,
+), $map2: $theme-colors);
+
+// Common border and padding and more.
+
+$border-width: 1px !default;
+$border-color: $normal !default;
+$border-radius: .25rem !default;
+$line-height-base: 1.5 !default;
+$padding-y:         .625rem !default;
+$padding-x:         .312rem !default;
+$input-btn-line-height:       $line-height-base !default;
+$enable-transitions:        true !default;
+$enable-rounded:            true !default;
+$box-shadows-base: 0px 0px 10px 0px $normal;
+
+$margin-base: 10; //10px
+$margin-2: calc($margin-base / 16) + rem;
+$margin-3: calc(($margin-base + 5) / 16) + rem;
+$margin-4: calc(($margin-base + 10) / 16) + rem;
+
+$margins: ("2": $margin-2, "3": $margin-3, "4": $margin-4);
+
+$avatar-size-base: 40px;
+$avatar-size-sm: $avatar-size-base / 2;
+$avatar-size-m: $avatar-size-base - 10;
+$avatar-size-l: $avatar-size-base + 20;
+
+$avatar-border-width: $border-width + 1;
+$avatar-border-radius: 50%;
+
+$grid-padding-x: ($padding-x * 1.2);
+$grid-padding-y: ($padding-y * 1.2);
+
+$transition-base:             all .2s ease-in-out !default;
+$transition-fade:             opacity .15s linear !default;
+$transition-collapse:         height .35s ease !default;
+
+$image-base-width: 500px;
+
+// Typography
+$spacer: 1rem !default;
+
+$font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-semi-bold: "Open Sans Semibold", $font-family;
+$font-family-bold: "Open Sans Bold", $font-family;
+
+$font-size-base: 1rem !default;
+$font-size-lg: ($font-size-base * 1.25) !default;
+
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+
+$font-weight-base:            $font-weight-normal !default;
+$line-height-base:            1.5 !default;
+
+$h1-font-size:                $font-size-base * 2.25 !default;
+$h2-font-size:                $font-size-base * 1.75 !default;
+$h3-font-size:                $font-size-base * 1.25 !default;
+$h4-font-size:                $font-size-base * 0.875 !default;
+$h5-font-size:                $font-size-base * 0.75 !default;
+$h6-font-size:                $font-size-base * 0.625 !default;
+
+$small-font-size:             80% !default;
+
+$paragraph-font-size:         $h4-font-size !default;
+$paragraph-line-height:       $line-height-base !default;
+
+$caption-font-size:           $h5-font-size !default;
+$caption-line-height:         $font-size-base !default;
+
+$headings-margin-bottom:      ($spacer / 2) !default;
+$headings-font-family:        inherit !default;
+$headings-font-weight:        $font-weight-bold !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              $onSurface;
+
+// Text color
+$caption-color: $normal;
+$body-color: $onSurface;
+
+// Buttons
+
+$btn-font-weight: $font-weight-bold !default;
+$btn-line-height: $line-height-base !default;
+$btn-border-width: $border-width !default;
+$btn-padding-y:               0.5rem !default;
+$btn-padding-x:               0.8rem !default;
+$btn-line-height:             $input-btn-line-height !default;
+$btn-border-radius:           $border-radius !default;
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+$btn-letter-spacing: calc(($font-size-base / 100) * 5);

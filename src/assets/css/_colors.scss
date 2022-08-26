@@ -1,0 +1,9 @@
+@each $color, $value in $theme-colors {
+    .pc__bg--#{$color} {
+        background-color: $value;
+    }
+
+    .pc__color--#{$color} {
+        color: $value;
+    }
+}

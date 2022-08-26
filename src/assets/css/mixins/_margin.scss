@@ -1,0 +1,47 @@
+@mixin margin {
+    @each $size, $value in $margins {
+        .margin-#{$size} {
+            &--top {
+                margin-top: $value;
+            }
+
+            &--bottom {
+                margin-bottom: $value;
+            }
+
+            &--right {
+                margin-right: $value;
+            }
+
+            &--left {
+                margin-left: $value;
+            }
+
+            margin: $value;
+        }
+    }
+}
+
+@mixin padding {
+    @each $size, $value in $margins {
+        .padding-#{$size} {
+            &--top {
+                padding-top: $value;
+            }
+
+            &--bottom {
+                padding-bottom: $value;
+            }
+
+            &--right {
+                padding-right: $value;
+            }
+
+            &--left {
+                padding-left: $value;
+            }
+
+            padding: $value;
+        }
+    }
+}

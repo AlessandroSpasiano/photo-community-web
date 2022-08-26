@@ -1,0 +1,10 @@
+.pc__input {
+    width: auto;
+    font-size: $font-size-lg;
+    box-sizing: border-box;
+    border: $border-width solid $primaryVariant;
+    outline: none;
+    &:focus-visible {
+        border: $border-width solid $primary;
+    }
+}
