@@ -21,11 +21,8 @@
             <span class="material-icons-round align-center">key</span>
           </div>
         </div>
-        <h4 class="pc__text--error margin-2--top" v-if="formatError.length > 0">
-          {{ formatError }}
-        </h4>
-        <h4 class="pc__text--error margin-2--top" v-else>
-          {{ user }}
+        <h4 class="pc__text--error margin-2--top">
+          {{ name }}
         </h4>
         <button
           class="btn pc__btn-primary margin-2--top margin-2--bottom"
@@ -39,10 +36,10 @@
 </template>
 
 <script>
-import { useErrorStore } from "@/state/error";
-import { useUserStore } from "@/state/user";
+//import { useErrorStore } from "@/state/error";
 import { config } from "@/utils/config";
 import axios from "axios";
+import { mapGetters, mapState } from "vuex";
 
 const baseUrl = config.url;
 
@@ -50,26 +47,13 @@ export default {
   name: "LoginComponent",
   props: {},
   data() {
-    const error = useErrorStore();
-    const userState = useUserStore();
     return {
       username: "",
       password: "",
-      error,
-      userState,
     };
   },
   methods: {
     login() {
-      this.error.clear();
-      if (this.username.length === 0) {
-        this.error.add(404, "Username required");
-        return;
-      }
-      if (this.password.length === 0) {
-        this.error.add(404, "Password required");
-        return;
-      }
       axios({
         method: "POST",
         url: `${baseUrl}user/authenticate`,
@@ -78,17 +62,20 @@ export default {
           password: this.password,
         },
       }).then((response) => {
-        this.userState.register(response.data.accessToken, null);
+        this.$store.dispatch("user/login", response.data.accessToken);
       });
     },
   },
   computed: {
     formatError() {
-      return this.error.format();
+      return "";
     },
-    user() {
-      return this.userState.accessToken;
-    },
+    ...mapGetters("user", {
+      name: "userInfo",
+    }),
+    ...mapState({
+      user: (state) => state.user,
+    }),
   },
 };
 </script>

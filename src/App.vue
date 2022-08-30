@@ -25,31 +25,20 @@
 @import "./assets/css/app.css";
 </style>
 <script>
-import { useUserStore } from "./state/user";
-import { useErrorStore } from "./state/error";
 import { config } from "@/utils/config";
 
 export default {
   data() {
-    const userStore = useUserStore();
-    const error = useErrorStore();
     return {
-      error,
       config,
-      userStore,
     };
   },
   methods: {
     login() {
-      if (!this.userStore.isLogged) {
-        this.$router.push("/login");
-      }
+      this.$router.push("/login");
     },
   },
   computed: {
-    isLogged() {
-      return this.userStore.isLogged;
-    },
     title() {
       return this.config.appTitle;
     },
